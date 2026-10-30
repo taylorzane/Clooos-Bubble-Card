@@ -28,6 +28,7 @@ function shouldApplyPopupStaticShell(context) {
     const isEditing = !!context.editor;
     const detectedEditor = !!context.detectedEditor;
     const popupMode = config.popup_mode ?? '';
+    const popupPosition = config.position_desktop ?? '';
     const performanceMode = config.performance_mode ?? '';
     const withBottomOffset = !!config.with_bottom_offset;
     const popupStyle = config.popup_style ?? '';
@@ -48,6 +49,7 @@ function shouldApplyPopupStaticShell(context) {
         context._lastPopupShellEditing === isEditing &&
         context._lastPopupShellDetectedEditor === detectedEditor &&
         context._lastPopupShellMode === popupMode &&
+        context._lastPopupShellPosition === popupPosition &&
         context._lastPopupShellPerformanceMode === performanceMode &&
         context._lastPopupShellBottomOffset === withBottomOffset &&
         context._lastPopupShellStyle === popupStyle &&
@@ -70,6 +72,7 @@ function shouldApplyPopupStaticShell(context) {
     context._lastPopupShellEditing = isEditing;
     context._lastPopupShellDetectedEditor = detectedEditor;
     context._lastPopupShellMode = popupMode;
+    context._lastPopupShellPosition = popupPosition;
     context._lastPopupShellPerformanceMode = performanceMode;
     context._lastPopupShellBottomOffset = withBottomOffset;
     context._lastPopupShellStyle = popupStyle;

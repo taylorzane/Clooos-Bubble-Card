@@ -1316,3 +1316,32 @@
         max-height: calc(100svh - var(--ha-space-10, 40px) - var(--ha-space-2, 8px) - var(--safe-area-inset-y, 0px) - 2 * var(--custom-height-offset-desktop, 0px)) !important;
     }
 }
+
+/* Keep positioned pop-ups within the dashboard area, including an open sidebar. */
+.bubble-pop-up:not(.editor) {
+    --bubble-popup-left-edge: 16px;
+    --bubble-popup-right-edge: 16px;
+}
+.bubble-pop-up:not(.editor):dir(ltr) {
+    --bubble-popup-left-edge: calc(var(--bubble-pop-up-content-inline-start) + 16px);
+}
+.bubble-pop-up:not(.editor):dir(rtl) {
+    --bubble-popup-right-edge: calc(var(--bubble-pop-up-content-inline-start) + 16px);
+}
+
+@media only screen and (min-width: 600px) {
+    .bubble-pop-up.popup-position-left:not(.editor),
+    .bubble-pop-up.popup-position-right:not(.editor) {
+        min-width: 0 !important;
+        max-width: min(var(--desktop-width, 540px), calc(100vw - var(--bubble-popup-left-edge) - var(--bubble-popup-right-edge))) !important;
+        margin-inline: 0 !important;
+    }
+    .bubble-pop-up.popup-position-left:not(.editor) {
+        left: var(--bubble-popup-left-edge) !important;
+        right: auto !important;
+    }
+    .bubble-pop-up.popup-position-right:not(.editor) {
+        left: auto !important;
+        right: var(--bubble-popup-right-edge) !important;
+    }
+}

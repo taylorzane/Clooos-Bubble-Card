@@ -330,6 +330,7 @@
       "styling": "Pop-up styling",
       "margin": "Margin (fix centering on some themes) (e.g. 13px)",
       "top_offset_mobile": "Top offset on mobile (e.g. -56px if your header is hidden)",
+      "position_desktop": "Horizontal position on larger screens",
       "top_offset_desktop": "Top offset on desktop (e.g. 50vh for a half-sized pop-up)",
       "width_desktop": "Width on desktop (100% by default on mobile)",
       "bg_color": "Background color (any var, hex, rgb or rgba value)",

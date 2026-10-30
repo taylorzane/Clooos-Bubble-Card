@@ -4331,6 +4331,23 @@ describe('pop-up styles', () => {
         }
     });
 
+    test('updates horizontal placement and falls back to the centered layout', async () => {
+        const { syncPopupModeClasses } = await import('./helpers.js');
+        const popUp = makePopUp();
+
+        syncPopupModeClasses(popUp, { position_desktop: 'left' });
+        expect(popUp.classes.has('popup-position-left')).toBe(true);
+        expect(popUp.classes.has('popup-position-right')).toBe(false);
+        syncPopupModeClasses(popUp, { position_desktop: 'right' });
+        expect(popUp.classes.has('popup-position-left')).toBe(false);
+        expect(popUp.classes.has('popup-position-right')).toBe(true);
+        for (const position_desktop of ['center', 'invalid', undefined]) {
+            syncPopupModeClasses(popUp, { position_desktop });
+            expect(popUp.classes.has('popup-position-left')).toBe(false);
+            expect(popUp.classes.has('popup-position-right')).toBe(false);
+        }
+    });
+
     test('switching back to the bubble style takes both classes off again', () => {
         const popUp = makePopUp();
 

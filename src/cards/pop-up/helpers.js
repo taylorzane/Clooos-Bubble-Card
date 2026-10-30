@@ -566,6 +566,8 @@ export function syncPopupModeClasses(popUp, config) {
     }
 
     const popupMode = getPopupMode(config);
+    popUp.classList.toggle('popup-position-left', config?.position_desktop === 'left');
+    popUp.classList.toggle('popup-position-right', config?.position_desktop === 'right');
     popUp.classList.toggle('popup-mode-fit-content', popupMode === POPUP_MODE_FIT_CONTENT);
     popUp.classList.toggle('popup-mode-centered', popupMode === POPUP_MODE_CENTERED);
     popUp.classList.toggle('popup-mode-adaptive-dialog', popupMode === POPUP_MODE_ADAPTIVE_DIALOG);

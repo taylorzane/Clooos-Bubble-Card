@@ -175,6 +175,7 @@ This card allows you to create a pop-up with any content. Each pop-up is **hidde
 | `close_by_clicking_outside` | boolean | Optional | `true` (default) or `false` | Close the pop-up by clicking outside of it |
 | `slide_to_close` | boolean or string | Optional | `true` (default), `header` or `false` | Close the pop-up by sliding it down |
 | `width_desktop` | string | Optional | Any CSS value | Width on desktop (`100%` by default on mobile) |
+| `position_desktop` | string | Optional | `left`, `center` (default), or `right` | Horizontal placement at widths of 600px and above. Adjust `width_desktop` to leave room for positioning. |
 | `margin` | string | Optional | Any CSS value | Use this **only** if your pop-up is not well centered on mobile (e.g. `13px`) |
 | `margin_top_mobile` | string | Optional | Any CSS value | Top margin on mobile (e.g. `-56px` if your header is hidden) |
 | `margin_top_desktop` | string | Optional | Any CSS value | Top margin on desktop (e.g. `50vh` for a half-sized pop-up or `calc(100vh - 400px)` for a fixed height of `400px`) |

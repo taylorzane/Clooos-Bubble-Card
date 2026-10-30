@@ -953,6 +953,20 @@ export function renderPopUpEditor(editor) {
                                     });
                                 }}
                             ></ha-form>
+                            <!-- Horizontal position on larger screens -->
+                            <ha-form
+                                .hass=${editor.hass}
+                                .data=${{ position_desktop: editor._config?.position_desktop || 'center' }}
+                                .schema=${[{ name: 'position_desktop', selector: { select: {
+                                    options: ['left', 'center', 'right'].map(value => ({ value, label: t(`editor.common.${value}`) })),
+                                    mode: 'dropdown'
+                                } } }]}
+                                .computeLabel=${() => t('editor.popup.position_desktop')}
+                                @value-changed=${(ev) => editor._valueChanged({
+                                    target: { configValue: 'position_desktop' },
+                                    detail: { value: ev.detail.value.position_desktop }
+                                })}
+                            ></ha-form>
                             <!-- Background color -->
                             <ha-form
                                 .hass=${editor.hass}
